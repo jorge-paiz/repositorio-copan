@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>COPAN</title>
+	<link rel="stylesheet" href="../css/estilo.css" type="text/css"
+		media="screen" />
+</h:head>
+<h:body styleClass="fondo-principal">
+	<h:form>
+
+		<div class="logeo-principal">
+			<h1 align="center">PANADERIA MONTERREY</h1>
+
+			<div class="logeo-secundario">
+
+				<table align="center">
+					<tr>
+						<td><p:outputLabel for="usu2" value="USUARIO" /></td>
+
+						<td><p:inputText id="usu2" /><br />
+						<br /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="PASSWORD" /></td>
+
+						<td><p:password id="nonFeedback2"
+								value="#{passwordView.password1}" /><br />
+						<br /></td>
+					</tr>
+
+				</table>
+
+				<p:commandButton value="Ingresar"
+					actionListener="../formularios/propiedades.xhtml" styleClass="btn" />
+
+			</div>
+		</div>
+	</h:form>
+</h:body>
+</html>

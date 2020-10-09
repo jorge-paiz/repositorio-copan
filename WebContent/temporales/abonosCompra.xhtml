@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+
+		<p:panel id="abonosCompraFrm" class="fondo-transparente">
+
+			<h:form class="fondo-transparente">
+
+				<table width="99%" class="fondo-transparente">
+					<tr align="center">
+
+						<td><p:outputLabel value="cantidad"
+								for="cantidadAbonoCompraTxt" /></td>
+
+						<td><p:autoComplete id="cantidadAbonoCompraTxt"
+								minQueryLength="3" value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+					</tr>
+
+				</table>
+				<br />
+				<br />
+
+				<p:button value="abonar" styleClass="btn">
+					<f:param name="abonarCompraBtn" value="10" />
+				</p:button>
+
+				<br />
+				<br />
+
+
+				<!-- 			https://www.primefaces.org/showcase/ui/data/datatable/expansion.xhtml -->
+
+				<p:dataTable var="listaAbonosCompra" value="#{dtBasicView.cars}">
+
+					<p:column headerText="fecha">
+						<h:outputText value="uno" />
+					</p:column>
+					<p:column headerText="cantidad">
+						<h:outputText value="1988" />
+					</p:column>
+				</p:dataTable>
+				<br />
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

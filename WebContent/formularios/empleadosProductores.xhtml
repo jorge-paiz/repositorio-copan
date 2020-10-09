@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="empleadosProductoresFrm" class="fondo-transparente">
+
+			<p:menuButton value="...">
+			
+				<p:menuitem value="averias"
+					url="http://localhost:8080/Copan/formularios/averias.xhtml" />
+				
+				<p:menuitem value="detalle de producción"
+					url="http://localhost:8080/Copan/formularios/detalleProduccion.xhtml" />
+				
+				<p:menuitem value="producción"
+					url="http://localhost:8080/Copan/formularios/produccion.xhtml" />
+					
+			</p:menuButton>
+
+			<h:form>
+
+				<table width="99%" class="fondo-transparente">
+					<tr align="center">
+
+						<td><h:outputText value="fecha" /></td>
+
+						<td><p:outputLabel value="nº orden" for="nOrdenTxt" /></td>
+
+						<td><p:outputLabel value="pago" for="pagoTxt" /></td>
+
+						<td><h:outputText value="empleado" /></td>
+
+
+
+					</tr>
+					<tr align="center">
+
+						<td><p:calendar id="mask" value="#{calendarView.date9}"
+								pattern="dd-MM-yyyy" mask="true" /></td>
+
+						<td><p:autoComplete id="nOrdenTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td><p:autoComplete id="pagoTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td><p:selectOneMenu id="listaEmpleadoProductor"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Jaime" itemValue="0" />
+								<f:selectItem itemLabel="Pechuga" itemValue="1" />
+								<f:selectItem itemLabel="Chamba" itemValue="2" />
+							</p:selectOneMenu></td>
+					</tr>
+
+				</table>
+
+				<table width="98%" align="center">
+					<tr align="center">
+						<td><p:button value="agregar" styleClass="btn">
+								<f:param name="agregarEmpleadoProductorBtn" value="10" />
+							</p:button></td>
+
+						<td><p:button value="guardar" styleClass="btn">
+								<f:param name="guardarEmpleadoProductorBtn" value="10" />
+							</p:button></td>
+
+						<td><p:button value="buscar" styleClass="btn">
+								<f:param name="buscarEmpleadoProductorBtn" value="10" />
+							</p:button></td>
+					</tr>
+				</table>
+
+				<p:dataTable var="tablaEmpleadoProductor"
+					value="#{dtBasicView.cars}">
+
+					<p:column headerText="empleado">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

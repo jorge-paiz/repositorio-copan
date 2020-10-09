@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="realizarCambiosProductoFrm" class="fondo-transparente">
+
+			<h:form>
+
+				<table width="99%" class="fondo-transparente">
+
+					<tr align="center">
+
+						<td><h:outputText value="tipo de persona" /></td>
+
+
+						<td><h:outputText value="cliente" /></td>
+
+
+						<td><h:outputText value="producto" /></td>
+
+						<td>
+							<center>
+								<p:outputLabel value="Cantidad" for="cantidadTxt" />
+							</center>
+						</td>
+
+					</tr>
+					<tr align="center">
+
+
+
+						<td><p:selectOneMenu id="tipoPersona"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Cliente" itemValue="0" />
+								<f:selectItem itemLabel="empleado" itemValue="1" />
+							</p:selectOneMenu></td>
+
+
+
+						<td><p:selectOneMenu id="listatipoPersonas"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Don Oscar" itemValue="0" />
+								<f:selectItem itemLabel="Don Paco" itemValue="1" />
+								<f:selectItem itemLabel="Don William" itemValue="2" />
+							</p:selectOneMenu></td>
+
+						<td><p:selectOneMenu id="listaProducto"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Tortas" itemValue="0" />
+								<f:selectItem itemLabel="Polla" itemValue="1" />
+							</p:selectOneMenu></td>
+
+
+						<td>
+							<center>
+
+								<p:autoComplete id="cantidadTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+							</center>
+						</td>
+
+					</tr>
+					<tr align="center">
+
+						<td></td>
+
+						<td><p:button value="agregar" styleClass="btn">
+								<f:param name="agregarCambioProductoBtn" value="10" />
+							</p:button></td>
+
+						<td><p:button value="aceptar" styleClass="btn">
+								<f:param name="aceptarCambioProductoBtn" value="10" />
+							</p:button></td>
+
+						<td></td>
+
+					</tr>
+
+				</table>
+				<br />
+
+				<!-- 			https://www.primefaces.org/showcase/ui/data/datatable/expansion.xhtml -->
+
+				<p:dataTable var="cambioProductos" value="#{dtBasicView.cars}">
+
+					<p:column headerText="producto">
+						<h:outputText value="uno" />
+					</p:column>
+					<p:column headerText="unidades">
+						<h:outputText value="1988" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

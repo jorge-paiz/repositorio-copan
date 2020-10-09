@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="formulaFrm" class="fondo-transparente">
+
+			<h:form>
+
+				<table width="99%" class="fondo-transparente">
+					<tr>
+						<td width="30%"><p:dataTable var="listaformulas"
+								value="#{dtBasicView.cars}">
+								<p:column style="width:16px">
+									<p:rowToggler />
+								</p:column>
+								<p:column headerText="descripcion">
+									<h:outputText value="uno" />
+								</p:column>
+
+							</p:dataTable></td>
+
+						<td width="70%" align="center">
+							<table>
+								<tr>
+									<td width="50%" align="center"><p:outputLabel
+											value="descripcion" for="descripcionFormulaTxt" /></td>
+									<td width="50%"><p:autoComplete id="descripcionFormulaTxt"
+											minQueryLength="3" value="#{autoCompleteView.txt2}"
+											completeMethod="#{autoCompleteView.completeText}"
+											effect="fade" style=".ui-text-box" /></td>
+								</tr>
+
+								<tr>
+									<td width="33%" align="center"><p:outputLabel
+											value="material" for="materialFormulaTxt" /></td>
+									<td width="33%"><p:autoComplete id="materialFormulaTxt"
+											minQueryLength="3" value="#{autoCompleteView.txt2}"
+											completeMethod="#{autoCompleteView.completeText}"
+											effect="fade" style=".ui-text-box" /></td>
+
+									<td width="33%"><p:button value="agregar" styleClass="btn">
+											<f:param name="agregarFormulaBtn" value="10" />
+										</p:button></td>
+								</tr>
+
+							</table>
+						</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td width="30%"><p:dataTable var="listaMateralesFormulas"
+								value="#{dtBasicView.cars}">
+								<p:column style="width:16px">
+									<p:rowToggler />
+								</p:column>
+								<p:column headerText="material">
+									<h:outputText value="uno" />
+								</p:column>
+
+							</p:dataTable></td>
+
+					</tr>
+				</table>
+
+				<p:button value="Guardar" styleClass="btn">
+					<f:param name="guardarFormulaBtn" value="10" />
+				</p:button>
+
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

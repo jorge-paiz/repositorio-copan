@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="pedidosVendedorFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>Nombre vendedor</H3>
+				</header>
+
+				<table class="fondo-transparente" width="100%">
+
+					<tr>
+						<td>
+							<center>
+								<h:outputText value="Tipo de producto" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<h:outputText value="Producto" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:outputLabel value="Cantidad" for="cantidadTxt" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:outputLabel value="Sobrante" for="sobranteTxt" />
+							</center> <br />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<center>
+								<p:selectOneMenu id="listaTipoProducto"
+									value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+									<f:selectItem itemLabel="Dulce" itemValue="0" />
+									<f:selectItem itemLabel="Frances" itemValue="1" />
+									<f:selectItem itemLabel="Repostería" itemValue="1" />
+								</p:selectOneMenu>
+							</center>
+						</td>
+
+						<td>
+							<center>
+								<p:selectOneMenu id="listaProducto"
+									value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+									<f:selectItem itemLabel="Torta" itemValue="0" />
+									<f:selectItem itemLabel="Pollo grande" itemValue="1" />
+									<f:selectItem itemLabel="Pollo mediano" itemValue="2" />
+								</p:selectOneMenu>
+							</center>
+						</td>
+
+						<td>
+							<center>
+								<p:autoComplete id="cantidadTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+							</center>
+						</td>
+
+						<td>
+							<center>
+								<p:autoComplete id="sobranteTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+							</center>
+						</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+
+						<td>
+							<center>
+								<p:selectOneRadio id="cantidadRbt" value="#{radioView.console}"
+									unselectable="true">
+									<f:selectItem itemLabel="Dólares" itemValue="Xbox One" />
+									<f:selectItem itemLabel="unidades" itemValue="PS4" />
+								</p:selectOneRadio>
+								<br />
+							</center>
+						</td>
+
+						<td>
+							<center>
+								<p:selectOneRadio id="vendajeRbt" value="#{radioView.console}"
+									unselectable="true">
+									<f:selectItem itemLabel="Dólares" itemValue="Xbox One" />
+									<f:selectItem itemLabel="unidades" itemValue="PS4" />
+								</p:selectOneRadio>
+								<br />
+							</center>
+						</td>
+
+					</tr>
+
+				</table>
+
+				<table class="fondo-transparente" width="100%">
+					<tr>
+						<td>
+							<center>
+								<p:outputLabel value="Porcentaje de vendedor"
+									for="procentajeVendedorTxt" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:outputLabel value="Total de la venta" for="totalVentaTxt" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:outputLabel value="Ganancia del vendedor"
+									for="gananciaVendedorTxt" />
+							</center> <br />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<center>
+								<p:autoComplete id="procentajeVendedorTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:autoComplete id="totalVentaTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								<br />
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:autoComplete id="gananciaVendedorTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								<br />
+							</center> <br />
+						</td>
+					</tr>
+				</table>
+
+				<table width="100%">
+					<tr>
+						<td>
+							<center>
+								<p:button value="agregar pedido" styleClass="btn">
+									<f:param name="agregarAPedidoVendedorBtn" value="10" />
+								</p:button>
+							</center> <br />
+						</td>
+
+						<td>
+							<center>
+								<p:button value="Quitar de pedido" styleClass="btn">
+									<f:param name="quitarDePedidoVendedorBtn" value="10" />
+								</p:button>
+							</center> <br />
+						</td>
+
+						<td><p:button value="Crear" styleClass="btn">
+								<f:param name="crearPedidoVendedorBtn" value="10" />
+							</p:button><br /> <br /></td>
+
+						<td><p:button value="Modificar" styleClass="btn">
+								<f:param name="ModificarPedidoVendedorBtn" value="10" />
+							</p:button>><br /> <br /></td>
+
+						<td><p:button value="Eliminar" styleClass="btn">
+								<f:param name="eliminarPedidoVendedorBtn" value="10" />
+							</p:button><br /> <br /></td>
+					</tr>
+				</table>
+
+				<p:dataTable var="tablaPedidosVendedor" value="#{dtBasicView.cars}">
+
+					<p:column headerText="producto">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="dólares">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="unidades">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="número de latas">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="sobrantes">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="vendidos">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>SAADEN</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"
+		media="screen" />
+<!-- 	<f:event listener="#{sessionBean.validarAcceso}" type="preRenderView" /> -->
+</h:head>
+<h:body>
+
+<style type="text/css">
+body {
+	background-image: url("../imagenes/fondo-portal.jpg");
+	background-repeat: no-repeat;
+	min-height: 100%;
+	background-size: cover;
+}
+</style>
+
+	<h:form id="portal">
+		<p:panel id="header"
+			header="Sistema Adminstrativo Automatizado de Notas"
+			styleClass="ui-header">
+			<h:panelGrid columns="3" styleClass="showcase-text-align-center"
+				cellpadding="10">
+				<p:graphicImage value="../imagenes/icon-edu.jpg" width="60"
+					height="60" />
+				<h:outputText
+					value="Bienvenido al sistema : #{portalBean.usuarios.usuario}" />
+				<p:clock pattern="dd/MM/yyyy HH:mm:ss" mode="server" />
+			</h:panelGrid>
+			<p:menubar model="#{homeBean.menu}">
+				<f:facet name="options">
+					<p:commandButton value="Logout" icon="fa fa-fw fa-power-off"
+						actionListener="#{portalBean.logout}" styleClass="ui-button" />
+				</f:facet>
+			</p:menubar>	
+		</p:panel>
+
+		<p:layout styleClass="ui-body">
+			<p:layoutUnit position="center" >
+				<ui:insert name="content">
+
+
+
+				</ui:insert>
+			</p:layoutUnit>
+		</p:layout>
+		
+		
+		<p:panel id="foot" styleClass="ui-foot">
+			<h:outputText
+				value="todo los derechos reservados,&#169;2019 grupo-test" />
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>COPAN</title>
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css"
+		media="screen" />
+<!-- 	<f:event listener="#{sessionBean.validarAcceso}" type="preRenderView" /> -->
+</h:head>
+<h:body>
+
+<style type="text/css">
+body {
+	background: linear-gradient(to top, #B43104 5%, #FE9A2E 75%, white 125%);
+}
+</style>
+
+	<h:form id="portal" class="fondo-transparente">
+		<p:panel class="fondo-transparente">
+			<header><H3>PANADERIA MONTERREY</H3></header>
+			
+			<h:panelGrid columns="3" class="fondo-transparente"
+				cellpadding="10">
+				<p:graphicImage value="../imagenes/icon-edu.jpg" width="60"
+					height="60" />
+				<h:outputText
+					value="Bienvenido al sistema : #{homeBean.usuarios.usuario}" />
+				<p:clock pattern="dd/MM/yyyy HH:mm:ss" mode="server"/>
+			</h:panelGrid>
+			
+			<table class="texto" style="width: 60%;">
+				<tr>
+					<td width="5%">
+						<p:link href='http://localhost:8080/Copan/formularios/inicio.xhtml' value="inicio" class="texto"/>						   
+					</td>					
+					<td width="5%">
+						<p:link href='http://localhost:8080/Copan/formularios/compras.xhtml' value="compras" class="texto"/>						   
+					</td>
+					<td width="5%">
+						<p:link href='http://localhost:8080/Copan/formularios/ventas.xhtml' value="ventas" class="texto"/>
+					</td>
+					<td width="5%">
+						<p:link href='http://localhost:8080/Copan/formularios/pedidos.xhtml' value="pedidos" class="texto"/>
+					</td>
+					<td width="5%">
+						<p:menubar class="fondo-transparente">
+							<p:submenu label="Inventarios" style="color:493612">
+				                <p:menuitem value="Materiales" url='http://localhost:8080/Copan/formularios/materiales.xhtml' style="color:493612"/>
+				                <p:menuitem value="Productos" url='http://localhost:8080/Copan/formularios/producto.xhtml' style="color:493612"/>
+				            </p:submenu> 
+						</p:menubar>					
+					</td>
+					<td width="10%">
+						<p:menubar class="fondo-transparente" >
+							<p:submenu label="usuarios">
+				                <p:menuitem value="cliente" url='http://localhost:8080/Copan/formularios/clientes.xhtml'/>
+				                <p:menuitem value="empleado" url='http://localhost:8080/Copan/formularios/empleados.xhtml'/>
+				                <p:menuitem value="proveedor" url='http://localhost:8080/Copan/formularios/proveedores.xhtml'/>
+				            </p:submenu> 
+						</p:menubar>					
+					</td>
+					
+					<td width="10%">
+						<p:menubar class="fondo-transparente" >
+							<p:submenu label="configuraciones">
+								<p:menuitem value="caja" url='http://localhost:8080/Copan/formularios/caja.xhtml'/>
+				                <p:menuitem value="propiedades" url='http://localhost:8080/Copan/formularios/propiedades.xhtml'/>
+				                <p:menuitem value="prueba" url='http://localhost:8080/Copan/formularios/prueba.xhtml'/>
+				                <p:menuitem value="produccion" url='http://localhost:8080/Copan/formularios/produccion.xhtml'/>
+				            </p:submenu> 
+						</p:menubar>					
+					</td>
+									
+				</tr>
+			</table>
+			
+			<p:menubar model="#{portalBean.menu}" class="fondo-transparente">			
+				<f:facet name="options">				
+					<p:commandButton value="Logout" actionListener="#{portalBean.logout}" 
+					styleClass="btn" />
+				</f:facet>
+			</p:menubar>
+		</p:panel>
+		
+				<ui:insert name="content">
+
+
+
+				</ui:insert>
+
+		<p:panel class="fondo-transparente">
+			<h:outputText value="todo los derechos reservados,&#169;2019 grupo-test" class="fondo-transparente"/>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

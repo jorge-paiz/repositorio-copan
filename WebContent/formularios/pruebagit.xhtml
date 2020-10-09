@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="averiasFrm" class="fondo-transparente">
+
+			<p:menuButton value="...">
+
+				<p:menuitem value="detalle de producción"
+					url="http://localhost:8080/Copan/formularios/detalleProduccion.xhtml" />
+				<p:menuitem value="empleados productores"
+					url="http://localhost:8080/Copan/formularios/empleadosProductores.xhtml" />
+				<p:menuitem value="producción"
+					url="http://localhost:8080/Copan/formularios/produccion.xhtml" />
+			</p:menuButton>
+
+			<h:form>
+
+				<table width="99%" class="fondo-transparente">
+					<tr align="center">
+						<td><h:outputText value="fecha" /></td>
+
+						<td><p:outputLabel value="nº orden" for="nOrdenTxt" /></td>
+
+						<td><h:outputText value="producto" /></td>
+
+						<td><p:outputLabel value="nº unidades" for="nUnidadesTxt" />
+						</td>
+
+						<td><p:outputLabel value="descipcion" for="descripcionTxt" />
+						</td>
+					</tr>
+
+					<tr align="center">
+						<td><p:calendar id="mask" value="#{calendarView.date9}"
+								pattern="dd-MM-yyyy" mask="true" /></td>
+
+						<td><p:autoComplete id="nOrdenTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td><p:selectOneMenu id="listaProductos"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Torta" itemValue="0" />
+								<f:selectItem itemLabel="Para pollo grande" itemValue="1" />
+								<f:selectItem itemLabel="Para pollo mediano" itemValue="2" />
+								<f:selectItem itemLabel="Para pollo pequeño" itemValue="3" />
+							</p:selectOneMenu></td>
+
+						<td><p:autoComplete id="nUnidadesTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td><p:autoComplete id="descripcionTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+					</tr>
+
+					<tr align="center">
+						<td><br /> <p:button value="agregar" styleClass="btn">
+								<f:param name="agregarAveriaBtn" value="10" />
+							</p:button></td>
+
+						<td><br /></td>
+						<td><br /></td>
+						<td><br /></td>
+
+						<td><br /> <p:button value="quitar" styleClass="btn">
+								<f:param name="quitarAveriaBtn" value="10" />
+							</p:button></td>
+					</tr>
+				</table>
+
+				<br />
+				<br />
+
+				<p:dataTable var="tablaAverias" value="#{dtBasicView.cars}">
+
+					<p:column headerText="producto">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="unidades">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="descripcion de averia">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

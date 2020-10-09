@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="inicioFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>Disponible</H3>
+				</header>
+
+				<table>
+					<tr>
+						<td><p:dataTable var="tablaProductoDisponible"
+								value="#{dtBasicView.cars}">
+
+								<p:column headerText="producto">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="cantidad de latas">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="unidades por lata">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+							</p:dataTable></td>
+					</tr>
+				</table>
+
+				<header>
+				<H3>Encargado</H3>
+				</header>
+				<div class="formulario-contenidos">
+					<p:dataTable var="tablaPedidos" value="#{dtBasicView.cars}">
+
+						<p:column headerText="persona">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="cantidad">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="estado de pedido">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="estado de pago">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+					</p:dataTable>
+				</div>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="cajaFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>CAJA</H3>
+				</header>
+
+				<div class="logeo-secundario">
+
+					<p:button value="Guardar" styleClass="btn">
+						<f:param name="guardarCajaBtn" value="10" />
+					</p:button>
+
+					<p:button value="Modificar" styleClass="btn">
+						<f:param name="modificarCajaBtn" value="10" />
+					</p:button>
+
+					<p:button value="Eliminar" styleClass="btn">
+						<f:param name="eliminarCajaBtn" value="10" />
+					</p:button>
+
+				</div>
+
+				<table class="fondo-transparente">
+					<tr class="fondo-transparente">
+						<td class="fondo-transparente" width="50%">
+							<center>
+								<div class="formulario-contenidos">
+
+									<p:outputLabel value="Encargado" for="listaEncargado" />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<p:selectOneMenu id="listaEncargado"
+										value="#{selectOneMenuView.longItemLabel}" style="width:200px">
+										<f:selectItem itemLabel="Jorge Paiz" itemValue="0" />
+										<f:selectItem itemLabel="Tancho" itemValue="1" />
+									</p:selectOneMenu>
+									<br />
+									<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<p:outputLabel value="Fecha" />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<p:calendar id="mask" value="#{calendarView.date9}"
+										pattern="dd-MM-yyyy" mask="true" />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+									<br />
+
+									<p:button value="Buscar" styleClass="btn">
+										<f:param name="buscarCajaBtn" value="10" />
+									</p:button>
+									<br />
+									<br />
+
+									<p:dataTable var="tablaCaja" value="#{dtBasicView.cars}">
+
+										<p:column headerText="encargado" width="100">
+											<h:outputText value="#{car.id}" />
+										</p:column>
+
+										<p:column headerText="fecha" width="100">
+											<h:outputText value="#{car.id}" />
+										</p:column>
+
+										<p:column headerText="cantidad" width="100">
+											<h:outputText value="#{car.id}" />
+										</p:column>
+
+									</p:dataTable>
+
+									<br />
+									<br />
+
+								</div>
+							</center>
+						</td>
+
+						<td>
+							<div class="formulario-contenidos">
+
+								<center>
+									<h3>Detalle de transacciones</h3>
+								</center>
+								<br />
+								<br />
+
+								<p:dataTable var="tablaDetalleTransacciones"
+									value="#{dtBasicView.cars}">
+
+									<p:column headerText="tipo de transaccion">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="descripcion de transaccion">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="cantidad">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+								</p:dataTable>
+								<br />
+								<br />
+
+							</div>
+						</td>
+
+					</tr>
+
+				</table>
+
+				<div class="fondo-transparente">
+					<center>
+
+						<p:outputLabel value="Cantidad" for="cantidadTxt" />
+						&nbsp;&nbsp;&nbsp;
+						<p:autoComplete id="cantidadTxt" minQueryLength="3"
+							value="#{autoCompleteView.txt2}"
+							completeMethod="#{autoCompleteView.completeText}" effect="fade"
+							style=".ui-text-box" />
+						&nbsp;&nbsp;&nbsp;
+						<p:selectOneMenu id="listaTipoTransaccion"
+							value="#{selectOneMenuView.longItemLabel}" style="width:200px">
+							<f:selectItem itemLabel="Egreso" itemValue="0" />
+							<f:selectItem itemLabel="ingreso" itemValue="1" />
+						</p:selectOneMenu>
+						<br />
+						<br />
+
+						<p:outputLabel value="Descripcion de transaccion" for="listaCaja" />
+						<br />
+						<br />
+
+						<p:inputTextarea rows="10" cols="50"
+							completeMethod="#{inputTextareaView.completeArea}"
+							queryDelay="750" minQueryLength="4">
+							<p:ajax event="itemSelect"
+								listener="#{inputTextareaView.onSelect}" />
+						</p:inputTextarea>
+						<br />
+						<br />
+
+						<p:button value="Agregar" styleClass="btn">
+							<f:param name="agregarTransaccionBtn" value="10" />
+						</p:button>
+
+						<p:button value="Quitar" styleClass="btn">
+							<f:param name="quitarTransaccionBtn" value="10" />
+						</p:button>
+
+					</center>
+				</div>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

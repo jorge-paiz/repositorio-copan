@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="creacionVentasFrm" class="fondo-transparente">
+
+			<h:form>
+
+				<table width="15%" align="right" class="fondo-transparente">
+					<tr>
+						<td><h:outputText value="total de venta" /></td>
+						<td><h:outputText value="total" /></td>
+					</tr>
+				</table>
+
+				<table width="99%" class="fondo-transparente">
+					<tr align="center">
+
+						<td><h:outputText value="cliente" /></td>
+
+						<td><h:outputText value="producto" /></td>
+
+						<td><p:outputLabel value="cantidad" for="cantidadTxt" /></td>
+
+						<td><p:outputLabel value="vendaje" for="vendajeTxt" /></td>
+
+					</tr>
+
+					<tr align="center">
+						<td><br></br> <p:selectOneMenu id="listaClientes"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Don Paco" itemValue="0" />
+								<f:selectItem itemLabel="Don Oscar" itemValue="1" />
+								<f:selectItem itemLabel="Don William" itemValue="2" />
+							</p:selectOneMenu></td>
+
+						<td><p:selectOneMenu id="listaProductos"
+								value="#{selectOneMenuView.longItemLabel}" style="width:190px">
+								<f:selectItem itemLabel="Torta grande" itemValue="0" />
+								<f:selectItem itemLabel="Para pollo grande" itemValue="1" />
+								<f:selectItem itemLabel="Para pollo pequeño" itemValue="2" />
+							</p:selectOneMenu></td>
+
+						<td><p:autoComplete id="cantidadTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td><p:autoComplete id="vendajeTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+					</tr>
+
+					<tr align="center">
+
+						<td><b /> <p:outputLabel value="abono" for="abonoTxt" /></td>
+
+						<td><b /> <p:autoComplete id="abonoTxt" minQueryLength="3"
+								value="#{autoCompleteView.txt2}"
+								completeMethod="#{autoCompleteView.completeText}" effect="fade"
+								style=".ui-text-box" /></td>
+
+						<td class="fondo-transparente">
+							<center>
+								<p:selectOneRadio id="cantidadRbt" value="#{radioView.console}"
+									unselectable="true">
+									<f:selectItem itemLabel="Dólares" itemValue="Xbox One" />
+									<f:selectItem itemLabel="unidades" itemValue="PS4" />
+								</p:selectOneRadio>
+							</center>
+						</td>
+
+						<td class="fondo-transparente"><p:selectOneRadio
+								id="vendajeRbt" value="#{radioView.console}"
+								unselectable="true">
+								<f:selectItem itemLabel="Dólares" itemValue="Xbox One" />
+								<f:selectItem itemLabel="unidades" itemValue="PS4" />
+							</p:selectOneRadio></td>
+					</tr>
+
+				</table>
+				<br />
+
+				<table align="center" width="99%">
+
+					<tr align="center">
+
+						<td><p:button value="agregar" styleClass="btn">
+								<f:param name="agregarVentaBtn" value="10" />
+							</p:button></td>
+
+						<td></td>
+
+						<td><p:button value="crear" styleClass="btn">
+								<f:param name="crearVentaBtn" value="10" />
+							</p:button></td>
+
+					</tr>
+				</table>
+				<br />
+
+				<p:dataTable var="tablaVentaProductos" value="#{dtBasicView.cars}">
+
+					<p:column headerText="producto">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="cantidad de unidades">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="total de la venta">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

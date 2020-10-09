@@ -1,0 +1,110 @@
+:root{
+	--color:red;
+	--centrado: center;
+	--colorTexto:#71291A;
+	--colorTextoBoton:#803E2B;
+}
+
+[type="menubar"]{
+	background: transparent;
+  	color: var(--colorTexto);
+  	border-width: 0px; 
+}
+
+.btn{
+	text-align: var(--centrado);
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #C57E18;
+    border-radius: 35px;
+	border: 2px solid #B07219;
+}
+.btn:hover{/*revisar los demas atributos a parte del hover*/
+    color: var(--colorTextoBoton);
+    background-color: #33B2FF;
+  }
+  
+
+ .crud-btn{
+ 	text-align: var(--centrado);
+ 	
+ }
+  
+.formulario-contenidos{
+	color: var(--colorTexto);
+	width: 100%;
+	height: 100%;
+	padding:10px;
+	padding: 10px, 20px, 20x, 20px;
+	
+	
+}
+  
+ .fondo-principal{
+  	background: linear-gradient(to top, #B43104 5%, #FE9A2E 75%, white 125%);
+  	
+}
+  
+.fondo-transparente, submenu menuitem{
+  	background: transparent;
+  	color: var(--colorTexto);
+  	border-width: 0px;	
+}
+  
+h1{
+   text-shadow: 0 0 20px #fefcc9, 2px -2px 3px #feec85, 
+   -4px -4px 5px #ffae34;
+   color: var(--colorTexto);
+}
+  
+header>H3{
+  	text-align: var(--centrado);
+  	color: var(--colorTexto);
+}
+ 
+.logeo-principal{
+ 	position:absolute;
+  	top: 175px;
+  	left: 400px;
+}
+  
+.logeo-secundario{
+ 	position:relative;
+  	text-align: center;
+}
+
+.pie{
+	
+	background: transparent;
+	text-align: var(--centrado);  	
+ }
+ 
+table tr td .texto{
+	color: var(--colorTexto);
+    text-decoration:none;
+   
+}
+
+.tamaño-tabla{
+	width: 500px;
+	text-align: var(--centrado);
+}
+
+
+h5{
+	color: var(--color);
+	text-align: var(--centrado)
+}
+
+
+  
+
+  
+
+  
+
+
+

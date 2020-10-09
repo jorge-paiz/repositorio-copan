@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="productosFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>PRODUCTOS</H3>
+				</header>
+
+				<div class="crud-btn">
+					<p:button value="Buscar" styleClass="btn">
+						<f:param name="buscarProductoBtn" value="10" />
+					</p:button>
+
+					<p:button value="Guardar" styleClass="btn">
+						<f:param name="guardarProductolBtn" value="10" />
+					</p:button>
+
+					<p:button value="Modificar" styleClass="btn">
+						<f:param name="modificarProductolBtn" value="10" />
+					</p:button>
+
+					<p:button value="Eliminar" styleClass="btn">
+						<f:param name="eliminarProductoBtn" value="10" />
+					</p:button>
+
+				</div>
+				<br />
+
+				<table class="fondo-transparente">
+					<tr class="fondo-transparente">
+						<td width="500px" class="fondo-transparente">
+							<div class="formulario-contenidos">
+								<p:outputLabel value="Producto" for="productoTxt" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:autoComplete id="productoTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								<br /> <br />
+
+								<p:outputLabel value="unidades por precio"
+									for="unidadesPorPrecioTxt" />
+								&#160;&#160;
+
+								<p:autoComplete id="unidadesPorPrecioTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								<br /> <br />
+
+								<p:outputLabel value="Precio" for="precioTxt" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								<p:inputText id="precioTxt" disabled="false"
+									value="#{inputNumberView.input1}" />
+								<br /> <br />
+
+								<p:outputLabel value="Tipo" for="listaTipoProductos" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								<p:selectOneMenu id="listaTipoProductos"
+									value="#{selectOneMenuView.longItemLabel}" style="width:100px">
+									<f:selectItem itemLabel="dulce" itemValue="0" />
+									<f:selectItem itemLabel="frances" itemValue="1" />
+									<f:selectItem itemLabel="reposteria" itemValue="2" />
+								</p:selectOneMenu>
+								<br /> <br />
+
+							</div>
+						</td>
+
+						<td>
+							<div class="formulario-contenidos">
+								<p:dataTable var="tablaProductos" value="#{dtBasicView.cars}">
+
+									<p:column headerText="tipo">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="producto">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="unidades">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="precio total">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+								</p:dataTable>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<br />
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

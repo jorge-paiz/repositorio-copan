@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="propiedadesFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>PROPIEDADES</H3>
+				</header>
+
+				<table class="fondo-transparente">
+					<tr class="fondo-transparente">
+						<td width="500px" class="fondo-transparente">
+							<div class="formulario-contenidos">
+								<p:outputLabel value="Propiedad" for="propdiedadTxt" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:autoComplete id="propdiedadTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								<br /> <br />
+
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								<p:button value="Buscar" styleClass="btn">
+									<f:param name="buscarPropiedadBtn" value="10" />
+								</p:button>
+								&#160;&#160;
+
+								<p:button value="Guardar" styleClass="btn">
+									<f:param name="guardarPropiedadBtn" value="10" />
+								</p:button>
+								<br /> <br />
+
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:button value="Modificar" styleClass="btn">
+									<f:param name="modificarPropiedadBtn" value="10" />
+								</p:button>
+								&#160;&#160;&#160;
+
+								<p:button value="Eliminar" styleClass="btn">
+									<f:param name="eliminarPropiedadBtn" value="10" />
+								</p:button>
+								<br /> <br />
+
+								<p:dataTable var="tablaPropiedades" value="#{dtBasicView.cars}">
+									<p:column headerText="Código">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="Propiedad">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+								</p:dataTable>
+
+							</div>
+						</td>
+
+						<td>
+							<div class="formulario-contenidos">
+
+								&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:outputLabel value="Sub propiedad" for="subPropiedadTxt" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:autoComplete id="subPropiedadTxt" minQueryLength="3"
+									value="#{autoCompleteView.txt2}"
+									completeMethod="#{autoCompleteView.completeText}" effect="fade"
+									style=".ui-text-box" />
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:selectOneMenu id="listaPropiedades"
+									value="#{selectOneMenuView.longItemLabel}" style="width:100px">
+									<f:selectItem itemLabel="libra" itemValue="0" />
+									<f:selectItem itemLabel="gramo" itemValue="1" />
+									<f:selectItem itemLabel="kilogramo" itemValue="2" />
+									<f:selectItem itemLabel="arroba" itemValue="3" />
+									<f:selectItem itemLabel="unidades" itemValue="4" />
+									<f:selectItem itemLabel="sacos" itemValue="5" />
+									<f:selectItem itemLabel="Ten and not more than ten "
+										itemValue="10" />
+								</p:selectOneMenu>
+								<br /> <br />
+
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:button value="Buscar" styleClass="btn">
+									<f:param name="buscarSubPropiedadBtn" value="10" />
+								</p:button>
+								&#160;&#160;
+
+								<p:button value="Guardar" styleClass="btn">
+									<f:param name="guardarSubPropiedadBtn" value="10" />
+								</p:button>
+								<br /> <br />
+
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+								&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+								<p:button value="Modificar" styleClass="btn">
+									<f:param name="modificarSubPropiedadBtn" value="10" />
+								</p:button>
+								&#160;&#160;&#160;
+
+								<p:button value="Eliminar" styleClass="btn">
+									<f:param name="eliminarSubPropiedadBtn" value="10" />
+								</p:button>
+								<br /> <br />
+
+								<p:dataTable var="tablaSubPropiedades"
+									value="#{dtBasicView.cars}">
+
+									<p:column headerText="Propiedad">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+
+									<p:column headerText="Sub propiedad">
+										<h:outputText value="#{car.id}" />
+									</p:column>
+								</p:dataTable>
+
+							</div>
+						</td>
+					</tr>
+				</table>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

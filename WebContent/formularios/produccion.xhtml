@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="produccionFrm" class="fondo-transparente">
+
+			<p:menuButton value="...">
+				<p:menuitem value="averias"
+					url="http://localhost:8080/Copan/formularios/averias.xhtml" />
+
+				<p:menuitem value="detalle de producción"
+					url="http://localhost:8080/Copan/formularios/detalleProduccion.xhtml" />
+
+				<p:menuitem value="empleados productores"
+					url="http://localhost:8080/Copan/formularios/empleadosProductores.xhtml" />
+			</p:menuButton>
+
+			<h:form>
+
+				<table>
+					<tr>
+						<td width="48%">
+							<table>
+								<tr align="center" class="fondo-transparente">
+									<td><p:outputLabel value="cantidad leña"
+											for="cantidadLenaTxt" /></td>
+
+									<td><p:autoComplete id="cantidadLenaTxt"
+											minQueryLength="3" value="#{autoCompleteView.txt2}"
+											completeMethod="#{autoCompleteView.completeText}"
+											effect="fade" style=".ui-text-box" /></td>
+
+								</tr>
+								<tr align="center" class="fondo-transparente">
+
+									<td><p:outputLabel value="cantidad a producir"
+											for="cantidadProducirTxt" /></td>
+
+									<td><p:autoComplete id="cantidadProducirTxt"
+											minQueryLength="3" value="#{autoCompleteView.txt2}"
+											completeMethod="#{autoCompleteView.completeText}"
+											effect="fade" style=".ui-text-box" /></td>
+
+									<td><p:button value="crear" styleClass="btn">
+											<f:param name="crearProduccionBtn" value="10" />
+										</p:button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><p:button value="guardar" styleClass="btn">
+											<f:param name="guardarProduccionBtn" value="10" />
+										</p:button></td>
+
+									<td><p:button value="eliminar" styleClass="btn">
+											<f:param name="eliminarProduccionBtn" value="10" />
+										</p:button></td>
+								</tr>
+							</table>
+						</td>
+
+						<td width="48%"><p:dataTable var="tablaPedidosGenerales"
+								value="#{dtBasicView.cars}">
+
+								<p:column headerText="producto">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="cantidad de latas">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="unidades por lata">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+							</p:dataTable></td>
+					</tr>
+				</table>
+
+
+
+				<p:dataTable var="tablaIngredientesAUsar"
+					value="#{dtBasicView.cars}">
+
+					<p:column headerText="harina">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{car.brand}" />
+							</f:facet>
+							<f:facet name="input">
+								<h:selectOneMenu value="#{car.brand}" style="width:100%">
+									<f:selectItems value="#{dtEditView.brands}" var="man"
+										itemLabel="#{man}" itemValue="#{man}" />
+								</h:selectOneMenu>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="azucar">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="manteca">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="sal">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+					<p:column headerText="levadura">
+						<h:outputText value="#{car.id}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>

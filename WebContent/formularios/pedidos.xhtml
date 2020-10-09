@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/contenedor/contenedor.xhtml">
+	<ui:define name="content">
+		<p:panel id="pedidosFrm" class="fondo-transparente">
+			<h:form>
+				<header>
+				<H3>Pedidos</H3>
+				</header>
+
+				<table>
+					<tr>
+						<td width="45%">
+
+							<table>
+								<tr>
+									<td class="fondo-transparente"><h:outputText
+											value="Tipo de persona" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</td>
+
+									<td><p:selectOneMenu id="listaTipoPersonas"
+											value="#{selectOneMenuView.longItemLabel}"
+											alt="seleccione un tipo de persona para el pedido"
+											style="width:190px">
+											<f:selectItem itemLabel="Cliente" itemValue="0" />
+											<f:selectItem itemLabel="Empleado" itemValue="1" />
+										</p:selectOneMenu></td>
+								</tr>
+
+								<tr>
+									<td class="fondo-transparente"><h:outputText
+											value="Persona" /></td>
+
+									<td><p:selectOneMenu id="listaPersonas"
+											value="#{selectOneMenuView.longItemLabel}"
+											style="width:190px">
+											<f:selectItem itemLabel="Persona1" itemValue="0" />
+											<f:selectItem itemLabel="Persona2" itemValue="1" />
+										</p:selectOneMenu></td>
+								</tr>
+
+								<tr>
+									<td width="50%" class="fondo-transparente"><h:outputText
+											value="fecha de entrega" /></td>
+
+									<td width="50%"><p:calendar id="mask"
+											value="#{calendarView.date9}" pattern="dd-MM-yyyy"
+											mask="true" /></td>
+								</tr>
+
+							</table>
+
+						</td>
+
+						<td width="50%">
+							<center>
+								<table>
+
+									<tr>
+										<td width="44%"><p:button value="nuevo usuario"
+												styleClass="btn" href='clientes.xhtml' /> <br /> <br /></td>
+
+										<td width="42%"><p:button value="pedido cliente"
+												styleClass="btn" href='pedidosCliente.xhtml' /> <br /> <br /></td>
+
+										<td width="15%"><p:button value="pedido vendedor"
+												styleClass="btn" href='pedidosVendedor.xhtml' /> <br /> <br /></td>
+									</tr>
+								</table>
+							</center> <p:dataTable var="tablaPedidosGenerales"
+								value="#{dtBasicView.cars}">
+
+								<p:column headerText="producto">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="cantidad de latas">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+								<p:column headerText="unidades por lata">
+									<h:outputText value="#{car.id}" />
+								</p:column>
+
+							</p:dataTable>
+
+						</td>
+					</tr>
+
+				</table>
+
+				<div class="formulario-contenidos">
+					<p:dataTable var="tablaPedidos" value="#{dtBasicView.cars}">
+
+						<p:column headerText="fecha de entrega">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="persona">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="cantidad">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="estado de pedido">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="estado de pago">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+					</p:dataTable>
+				</div>
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
+</html>
